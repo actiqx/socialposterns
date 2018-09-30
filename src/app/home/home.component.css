@@ -1,0 +1,12 @@
+.socialAppList div[class*='flex'] .socialIcon{
+    border:1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.socialAppList div[class*='flex'] i{
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+    font-size: 50px;
+    
+} 

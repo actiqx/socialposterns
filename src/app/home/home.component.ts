@@ -12,4 +12,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  signInApp(appKey){
+    switch(appKey){
+      case 'facebook':
+          console.log("Facebook");
+          break;
+      case 'google-plus':
+          console.log("google-plus");
+          break;
+      default:
+          break;
+    }
+
+  }
 }
