@@ -1,0 +1,75 @@
+<!-- <div class="page">
+	<form class="form">
+		<img class="logo" src="../../assets/images/logo.jpg"/>
+		<label class="header">APP NAME</label>
+
+		<div class="input-field">
+			<input type="text" class="input" />
+			<div class="hr-light"></div>
+		</div>
+
+		<div class="input-field">
+			<input type="password" class="input"/>
+			<div class="hr-light"></div>
+    </div>
+
+		<div *ngIf="!isLoggingIn" class="input-field">
+			<input type="password" class="input"/>
+			<div class="hr-light"></div>
+    </div>
+
+		<button class="btn btn-primary m-t-20" (click)="submit()">{{isLoggingIn ? 'Log In' : 'Sign Up'}}</button>
+		<Label *ngIf="isLoggingIn" class="login-label" (click)="forgotPassword()">Forgot your password?</Label>
+	</form>
+
+	<label class="login-label sign-up-label" (click)="submit()">
+    <div>
+      <Span>{{isLoggingIn ? 'Don’t have an account? ' : 'Back to Login'}}</Span>
+      <Span class="bold">{{isLoggingIn ? 'Sign up' : ''}}</Span>
+    </div>
+	</label>
+</div> -->
+
+
+
+<div class="container">
+  
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <section class="login-form">
+				<div class="w-100 ">
+						<div class="logo-container d-inline-block w-50 text-right">
+								<img src="../../assets/images/logo.jpg" class="img-responsive" alt="" />
+						</div>
+						<h5 class="w-50 text-justify d-inline-block ">Social App</h5>
+				</div>
+        <form method="post" action="#" role="login">
+          
+          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" value="" />
+          
+          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          
+          
+          <div class="pwstrength_viewport_progress"></div>
+          
+          
+          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block" (click)="submit()">Sign in</button>
+          <div>
+            <a href="#">Create account</a> or <a href="#">reset password</a>
+          </div>
+          
+        </form>
+        
+        <div class="form-links">
+          <a href="#">www.website.com</a>
+        </div>
+      </section>  
+      </div>
+      
+      
+
+  </div>
+	</div>
+	

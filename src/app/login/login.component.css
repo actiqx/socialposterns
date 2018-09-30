@@ -1,0 +1,100 @@
+/* .page {
+    align-items: center;
+    flex-direction: column;
+  }
+  .form {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 2;
+    vertical-align: middle;
+  }
+  
+  .logo {
+    margin-bottom: 12;
+    height: 90;
+    font-weight: bold;
+  }
+  .header {
+    text-align: center;
+    font-size: 25;
+    font-weight: 600;
+    margin-bottom: 70;
+    text-align: center;
+    color: #D51A1A;
+  }
+  
+  .input-field {
+    margin-bottom: 25;
+  }
+  .input {
+    font-size: 18;
+    
+  }
+  
+  .btn-primary {
+    height: 50;
+    margin: 30 5 15 5;
+    background-color: #D51A1A;
+    border-radius: 5;
+    font-size: 20;
+    font-weight: 600;
+  }
+  .login-label {
+    text-align: center;
+    color: #A8A8A8;
+    font-size: 16;
+  }
+  .sign-up-label {
+    margin-bottom: 20;
+  }
+  .bold {
+    color: #000000; 
+  }
+   */
+
+   body {
+    background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+  
+  .login-form {
+    margin-top: 60px;
+  }
+  .logo-container img{
+    height: 100px;
+    width: 100px;
+
+  }
+  form[role=login] {
+    color: #5d5d5d;
+    background: #f2f2f2;
+    padding: 26px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+  }
+    form[role=login] img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 35px;
+    }
+    form[role=login] input,
+    form[role=login] button {
+      font-size: 18px;
+      margin: 16px 0;
+    }
+    form[role=login] > div {
+      text-align: center;
+    }
+    
+  .form-links {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 50px;
+  }
+    .form-links a {
+      color: #fff;
+    }
