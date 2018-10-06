@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from '@angular/router';
-import { User } from "../model/user.model";
 import { Page } from "tns-core-modules/ui/page/page";
+import {AuthService} from '../service/auth.service';
 
 
 @Component({
@@ -12,14 +12,10 @@ import { Page } from "tns-core-modules/ui/page/page";
 export class LoginComponent implements OnInit {
 
 	isLoggingIn = true;
-	user: User;
-	@ViewChild('password')
-	password: ElementRef;
-	@ViewChild('confirmPassword')
-	confirmPassword: ElementRef;
-	constructor(private router: Router) { 
+	username: any;
+	password:any;
+	constructor(private router: Router, private authService:AuthService) { 
 		//this.page.actionBarHidden = true;
-		this.user = new User();
 	}
 
 	ngOnInit() { }
@@ -28,49 +24,34 @@ export class LoginComponent implements OnInit {
 		this.isLoggingIn = !this.isLoggingIn;
 	}
 
-	submit() {
-    //dev mode
-    this.login();
-
-
-		// if (!this.user.email || !this.user.password) {
-		// 	this.alert("Please provide both an email address and password.");
-		// 	return;
-		// }
-
-		// if (this.isLoggingIn) {
-		// 	this.login();
-		// } else {
-		// 	this.register();
-		// }
-	}
-
-	login() {
-		this.router.navigate(["/home"]);
-		// this.userService.login(this.user)
-		//     .then(() => {
-
-		//     })
-		//     .catch(() => {
-		//         this.alert("Unfortunately we could not find your account.");
-		//     });
-	}
-
-	register() {
-		if (this.user.password != this.user.confirmPassword) {
-			this.alert("Your passwords do not match.");
-			return;
+	doLogin() {
+		if(!this.username){
+			alert('Enter UserName');
+		}else if(!this.password){
+			alert('Enter Password');
+		} else
+		{
+			const loginReqData = {
+				usernameOrEmail:this.username,
+				password:this.password
+			}
+			this.authService.login(loginReqData).subscribe(
+				() => {
+					this.router.navigate(["/home"]);
+				},
+				error => {
+					console.log(error);
+				}
+			);
 		}
-		this.alert("Your account was successfully created.");
-		// this.userService.register(this.user)
-		//     .then(() => {
-		//         this.alert("Your account was successfully created.");
-		//         this.isLoggingIn = true;
-		//     })
-		//     .catch(() => {
-		//         this.alert("Unfortunately we were unable to create your account.");
-		//     });
-	}
+	  }
+
+	  goToSignUp(){
+		this.router.navigate(["/signup"]);
+	  }
+	
+
+	
 
 	forgotPassword() {
 		// prompt({
@@ -95,9 +76,10 @@ export class LoginComponent implements OnInit {
 	focusPassword() {
 		this.password.nativeElement.focus();
 	}
+
 	focusConfirmPassword() {
 		if (!this.isLoggingIn) {
-			this.confirmPassword.nativeElement.focus();
+			//this.confirmPassword.nativeElement.focus();
 		}
 	}
 

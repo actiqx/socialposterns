@@ -1,0 +1,40 @@
+
+<div class="fluid-container">
+    <div class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 offset-sm-1 col-sm-10 col-xs-12 d-flex justify-content-center">
+      <section class="signup-form w-100">
+        <h5>Sign Up</h5>
+        <form #signupForm="ngForm" (ngSubmit)="doSignUp()">
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter Name" required name="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.name">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="UserName" required name="username" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.username">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email Address" required name="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required name="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.password">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" required [ngModelOptions]="{standalone: true}" [(ngModel)]="confirmPassword">
+          </div>
+          <!-- <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Please accept the terms and conditions to proceed with your request.
+              </label>
+            </div>
+          </div> -->
+          <div class="form-group">
+            <input type="submit" class="btn btn-success btn-block"  value="SUBMIT">
+          </div>
+        </form>
+      
+      </section>  
+      </div>
+      
+      
+
+  
+	</div>

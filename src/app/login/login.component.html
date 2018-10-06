@@ -45,19 +45,19 @@
 						</div>
 						<h5 class="w-50 text-justify d-inline-block ">Social App</h5>
 				</div>
-        <form method="post" action="#" role="login">
+        <form #loginForm="ngForm" (ngSubmit)="doLogin()">
           
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" value="" />
+          <input type="email" name="email" placeholder="Email" [ngModelOptions]="{standalone: true}" [(ngModel)]="username" required class="form-control input-lg" value="" />
           
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" required="" />
           
           
           <div class="pwstrength_viewport_progress"></div>
           
           
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block" (click)="submit()">Sign in</button>
+          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
           <div>
-            <a href="#">Create account</a> or <a href="#">reset password</a>
+            <a href="#" (click)="goToSignUp()">Create account</a> or <a href="#">reset password</a>
           </div>
           
         </form>

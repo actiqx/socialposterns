@@ -6,6 +6,13 @@ export const environment = {
   production: false
 };
 
+export const apiUrls = {
+  baseUrl:'http://desktop-c1hemvb:8080',
+  registerUser: '/api/auth/signup',
+  authenticateUser: '/api/auth/signin',
+  generateAuthUrl:'/generateAuthUrl'
+};
+
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
