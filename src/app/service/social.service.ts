@@ -19,6 +19,12 @@ export class SocialService {
     .pipe(catchError(this.handleError));
   }
 
+  getFacebookToken(authCode){
+    return this.http
+    .get(apiUrls.baseUrl + apiUrls.getFacebookTokenUrl + authCode, this.jwt())
+    .pipe(catchError(this.handleError));
+  }
+
   
   loggedIn() {
     //return !this.jwtHelper.isTokenExpired();

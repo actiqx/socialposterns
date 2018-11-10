@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Page } from "tns-core-modules/ui/page/page";
 import {AuthService} from '../service/auth.service';
 
@@ -9,46 +10,52 @@ import {AuthService} from '../service/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent implements OnInit {
-
+	loginForm: FormGroup;
+	submitted = false;
 	isLoggingIn = true;
-	username: any;
-	password:any;
-	constructor(private router: Router, private authService:AuthService) { 
-		//this.page.actionBarHidden = true;
+  
+	constructor(private formBuilder: FormBuilder, private router: Router, private authService:AuthService) { }
+  
+	ngOnInit() {
+		this.loginForm = this.formBuilder.group({
+			email: ['', [Validators.required]],
+			password: ['', [Validators.required, Validators.minLength(6)]]
+		});
 	}
-
-	ngOnInit() { }
-
-	toggleForm() {
-		this.isLoggingIn = !this.isLoggingIn;
+	// convenience getter for easy access to form fields
+	get f() {
+	  return this.loginForm.controls;
 	}
-
+  
+  
 	doLogin() {
-		if(!this.username){
-			alert('Enter UserName');
-		}else if(!this.password){
-			alert('Enter Password');
-		} else
-		{
-			const loginReqData = {
-				usernameOrEmail:this.username,
-				password:this.password
-			}
-			this.authService.login(loginReqData).subscribe(
-				() => {
-					this.router.navigate(["/home"]);
-				},
-				error => {
-					console.log(error);
-				}
-			);
-		}
+	  this.submitted = true;
+	  if (this.loginForm.invalid) {
+		return;
+	  } else {
+		  const loginReqData = {
+			  usernameOrEmail:this.loginForm.controls.email.value,
+			  password:this.loginForm.controls.password.value
+		  }
+		  this.authService.login(loginReqData).subscribe(
+			  () => {
+				  this.router.navigate(["/home"]);
+			  },
+			  error => {
+				  console.log(error);
+			  }
+		  );
 	  }
-
-	  goToSignUp(){
+	
+	  console.log('Logged In');
+	}
+	goToSignUp() {
 		this.router.navigate(["/signup"]);
-	  }
+	}
+
 	
 
 	
@@ -74,7 +81,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	focusPassword() {
-		this.password.nativeElement.focus();
+		//this.password.nativeElement.focus();
 	}
 
 	focusConfirmPassword() {
@@ -90,5 +97,5 @@ export class LoginComponent implements OnInit {
 			message: message
 		});
 	}
-}
+  }
 

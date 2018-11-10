@@ -1,12 +1,86 @@
-.socialAppList div[class*='flex'] .socialIcon{
+.socialAppList div[class*='flex'] .socialTile{
     border:1px solid #000;
     border-radius: 5px;
     cursor: pointer;
+    width: 140px;
+    height: 80px;
+    background-color: #d8d8d8;
 }
-.socialAppList div[class*='flex'] i{
-    height: 60px;
-    width: 60px;
+.socialAppList div[class*='flex'] .socialIcon{
+    height: 45px;
+    width: 45px;
     padding: 5px;
-    font-size: 50px;
-    
+    font-size: 35px;
+    display: block;
+    margin-left: calc(50% - 22px);
 } 
+
+.socialTile div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.socialTile .iconInfo{
+    line-height: 26px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.socialTile .iconInfo i{
+    line-height: 26px;
+    color: green;
+    font-size: 18px;
+}
+
+
+.socialTile div::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+.socialTile div:hover{
+    background-color: darkgrey;
+}
+.socialTile div:hover::before {
+    -webkit-animation: circle .75s;
+    animation: circle .75s;
+}
+
+@-webkit-keyframes circle {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        width: 120%;
+        height: 120%;
+        opacity: 0;
+    }
+}
+
+@keyframes circle {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        width: 120%;
+        height: 120%;
+        opacity: 0;
+    }
+}

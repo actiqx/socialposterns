@@ -7,10 +7,11 @@ export const environment = {
 };
 
 export const apiUrls = {
-  baseUrl:'http://desktop-c1hemvb:8080',
+  baseUrl:'http://desktop-c1hemvb:5000',//'https://posterapi.cfapps.io',
   registerUser: '/api/auth/signup',
   authenticateUser: '/api/auth/signin',
-  generateAuthUrl:'/generateAuthUrl'
+  generateAuthUrl:'/generateAuthUrl',
+  getFacebookTokenUrl:'/facebook?code='
 };
 
 /*

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 //   GoogleLoginProvider,
 //   FacebookLoginProvider,
 // } from "angular5-social-login";
-import { SocialsigninComponent } from './socialsignin/socialsignin.component';
+//import { SocialsigninComponent } from './socialsignin/socialsignin.component';
 import { SignupComponent } from './signup/signup.component';
 var $ = require("jquery");
 
@@ -22,13 +22,14 @@ var $ = require("jquery");
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SocialsigninComponent,
+    //SocialsigninComponent,
     SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
     // SocialLoginModule
   ],

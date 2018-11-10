@@ -32,7 +32,7 @@
 
 
 
-<div class="container">
+<!-- <div class="container">
   
   <div class="row" id="pwd-container">
     <div class="col-md-4"></div>
@@ -71,5 +71,60 @@
       
 
   </div>
-	</div>
-	
+	</div> -->
+  
+  
+
+  <div class="container">
+
+    <div class="row" id="pwd-container">
+      <div class="col-md-4"></div>
+  
+      <div class="col-md-4">
+        <section class="login-form">
+          <div class="w-100 mb-2">
+              <div class="logo-container d-inline-block w-35 text-right">
+                  <img src="../../assets/images/social-network.jpg" class="img-responsive" alt="" />
+              </div>
+              <h5 class="w-63 ml-2 text-justify d-inline-block ">Social App</h5>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="doLogin()" class="text-center">
+  
+              <div class="form-group">
+                  <input type="text" placeholder="Email Or Name" formControlName="email" class="form-control input-lg mb-1 w-100" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.email.errors.required">Email Or Name is required</div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback text-left">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </div>
+              </div>
+  
+  
+  
+  
+            <div class="pwstrength_viewport_progress"></div>
+  
+  
+  
+  
+  
+  
+            <button type="submit" name="go" class="btn btn-primary mt-2">Sign in</button>
+            <div class="login-links">
+              <button class="btn btn-link" (click)="goToSignUp()">Create account</button> or <button class="btn btn-link">reset password</button>
+            </div>
+  
+          </form>
+  
+          <div class="form-links">
+            <a href="#">www.website.com</a>
+          </div>
+        </section>
+        </div>
+    </div>
+    </div>
