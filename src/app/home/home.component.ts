@@ -60,11 +60,12 @@ window.fbAsyncInit = () => {
         if(params['page'] === 'facebook'){
           this.socialService.getFacebookToken(params['code']).subscribe((data:any)=> {
             this.socialToken.facebookToken = data._body;
+            localStorage.setItem("SocialToken", JSON.stringify(this.socialToken));
             console.log("Facebook", data);
         });
         }
       }
-      localStorage.setItem("SocialToken", JSON.stringify(this.socialToken));
+      
     })
     if (window.FB) {
       window.FB.XFBML.parse();
